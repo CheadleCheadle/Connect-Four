@@ -23,14 +23,53 @@ class Cursor {
   }
 
   left() {
-    // Move cursor left
+    if (this.col > 0) {
+      this.resetBackgroundColor();
+      --this.col;
+      this.setBackgroundColor();
+      Screen.render();
+      Screen.printCommands();
+    }
   }
 
   right() {
-    // Move cursor right
+    if (this.col < this.numCols - 1) {
+      this.resetBackgroundColor();
+      ++this.col;
+      this.setBackgroundColor();
+      Screen.render();
+      Screen.printCommands();
+    }
+  }
+  up() {
+    
+
+    if (this.row > 0){
+      this.resetBackgroundColor();
+      --this.row;
+      this.setBackgroundColor();
+      Screen.render();
+      Screen.printCommands();
+    }
+    
   }
 
+  down() {
+    if (this.row < this.numRows - 1) {
+    this.resetBackgroundColor();
+     ++this.row;
+    this.setBackgroundColor();
+     Screen.render();
+     Screen.printCommands();
+    }
+  
+  }
+
+  
+ 
+
 }
+
 
 
 module.exports = Cursor;
